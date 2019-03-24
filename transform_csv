@@ -1,0 +1,24 @@
+import os
+def main():
+    # Incase you have to take input, please take it from file named 'input' (without quotes) [e.g. cat input]
+    # Print your final output to console. Do not redirect to another file.
+    # E.g. Suppose the question is to print the content of a file.
+    #    Your solution should be 'os.system("cat input")'(without single quotes) instead of 'os.system("cat input > output")'. That's it!
+    # Your code starts from here...
+    f = open("input","r")
+    if os.path.exists("newfile"):
+        os.remove("newfile")
+    o = open("newfile","w")
+    for line in f:
+        commaval = line.split(",")
+        final="+" + commaval[4] + '-' + commaval[6]
+        #print(final.rstrip())
+        o.write(commaval[0]+","+commaval[1]+","+commaval[2]+","+commaval[3]+","+commaval[5]+","+final)
+    f.close()
+    o.close()
+    outputf  = open("newfile","r")
+    print(outputf.read())
+    return 0
+
+if __name__ == '__main__':
+    main()
