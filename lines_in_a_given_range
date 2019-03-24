@@ -1,0 +1,19 @@
+def main():
+    linecount=0
+    f = open('input', 'r')
+    for line in f:
+        fields = line.split(" ")
+        range1=int(fields[0])
+        range2=int(fields[1])
+        #print(range1 + range2)
+        break
+    f.close()
+    f1=open('input','r')
+    for line in f1:
+        linecount=linecount+1
+        if linecount in range(range1,range2+1):
+            print(line.rstrip())
+
+
+if __name__ == '__main__':
+    main()
