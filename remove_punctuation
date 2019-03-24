@@ -1,0 +1,32 @@
+import os
+def main():
+    # Incase you have to take input, please take it from file named 'input' (without quotes) [e.g. cat input]
+    # Print your final output to console. Do not redirect to another file.
+    # E.g. Suppose the question is to print the content of a file.
+    #    Your solution should be 'os.system("cat input")'(without single quotes) instead of 'os.system("cat input > output")'. That's it!
+    # Your code starts from here...
+    punctions=['!', '@', '#' ,'$', '#', '%', '^','&', '*' , '(', ')', '_' ,'-' ,'+', '=', '{', '}', '[', ']', ';', ':',
+               '\'', '"', '`', '/', '>' ,'?', '.' ,',', '<', '~', '|' ,'\\']
+#! @ # $ % ^ & * ( ) _ - + = { } [ ] ; : ' " ` / > ? . , < ~ | \
+    #print(punctions[1])
+    with open("input","r") as f:
+        if os.path.exists("newfile"):
+            os.remove("newfile")
+        newf=open("newfile","a")
+        while True:
+            c = f.read(1)
+            #print(c)
+            if not c :
+                break
+            if c not in punctions:
+                #print(c)
+                newf.write(c)
+
+    newf.close()
+    with open('newfile', 'r') as outputfile:
+        print(outputfile.read())
+
+    return
+
+if __name__ == '__main__':
+    main()
